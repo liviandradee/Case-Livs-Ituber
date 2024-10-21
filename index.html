@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage+</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Manage+</h1>
+
+        <!-- Forms para cadastrar pessoa -->
+        <h2>Cadastrar Pessoa</h2>
+        <form id="form-cadastrar">
+            <input type="text" id="nome_completo" placeholder="Nome Completo" required>
+            <input type="date" id="data_nascimento" placeholder="Data de Nascimento" required>
+            <input type="text" id="endereco" placeholder="Endereço" required>
+            <input type="text" id="cpf" placeholder="CPF" required>
+            <input type="text" id="estado_civil" placeholder="Estado Civil" required>
+            <button type="submit">Cadastrar</button>
+        </form>
+ <!-- Forms para att pessoa -->
+        <h2>Atualizar Pessoa</h2>
+        <form id="form-atualizar">
+            <input type="text" id="id_atualizar" placeholder="ID da Pessoa" required>
+            <input type="text" id="nome_completo_atualizar" placeholder="Nome Completo">
+            <input type="date" id="data_nascimento_atualizar" placeholder="Data de Nascimento">
+            <input type="text" id="endereco_atualizar" placeholder="Endereço">
+            <input type="text" id="cpf_atualizar" placeholder="CPF">
+            <input type="text" id="estado_civil_atualizar" placeholder="Estado Civil">
+            <button type="submit">Atualizar</button>
+        </form>
+
+        <!-- Listar pessoas -->
+        <h2>Pessoas Cadastradas</h2>
+        <div id="lista-pessoas"></div>
+    </div>
+
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

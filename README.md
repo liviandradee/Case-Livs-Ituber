@@ -1,43 +1,22 @@
-# API de Cadastro e Gestão de Pessoas
-## Esta é uma API simples para cadastro e gestão de pessoas. Ela permite criar, listar, atualizar e excluir informações de pessoas, armazenando os dados em memória.
+# Manage+ API
+## Manage+ é um programa  simples que permite cadastrar, atualizar, listar e excluir pessoas. Este README explica como utilizar a API e como trabalhar com a interface HTML fornecida.
 
- 1. Objetivo: Criar uma API para cadastro e gestão de pessoas.
- 2. Endpoints: 
+### Requisitos
+Antes de começar, você precisa ter o seguinte instalado:
+
+### Python 3.x
+### Flask
+### Flask-CORS
+
+ ###  1. Objetivo: Criar uma API para cadastro e gestão de pessoas.
+ ###  2. Endpoints: 
   - localhost/pessoas (POST)
   - localhost/pessoas (GET)
   - localhost/pessoas/id (PUT)
   - localhost/pessoas/id (DELETE)
- 3. Recursos: Gestão de pessoas
+ ###  3. Recurso: Gestão de pessoas
 
 
-
-
-## Tecnologias Utilizadas
-
-Python
-
-Flask
-
-## Funcionalidades
-
-A API oferece as seguintes operações:
-
-Cadastrar uma nova pessoa (Create)
-#
-Listar todas as pessoas cadastradas (Read)
-#
-Atualizar informações de uma pessoa (Update)
-#
-Excluir uma pessoa (Delete)
-#
-
-## Pré-requisitos
-Python 3.7+
-#
-Pip (para instalar dependências)
-#
-Postman (para testar a API)
-#
 ## Instalação
 
 
@@ -47,17 +26,16 @@ python -m venv venv
 
 ### Ative o ambiente virtual:
 
-### Windows:
+####  python -m venv venv
+#### source venv/bin/activate   Para Linux/Mac
+####  venv\Scripts\activate      Para Windows
 
-venv\Scripts\activate
 
-### Linux/Mac:
-
-source venv/bin/activate
 
 ### Instale as dependências:
 
 pip install flask
+pip install flask-cors
 
 ## Como Executar a API
 Execute o comando:
@@ -142,5 +120,15 @@ Resposta esperada:
   "mensagem": "Pessoa excluída com sucesso."
 }
 
+
+### INTERFACE HTML: 
+
+#### Abra o arquivo index.html: Você pode abrir o arquivo index.html em um navegador web.
+
+####  Cadastrar Pessoa: Preencha o formulário de cadastro e clique em "Cadastrar". A nova pessoa será adicionada à API e aparecerá na lista abaixo.
+
+####  Atualizar Pessoa: Para atualizar uma pessoa, insira o ID da pessoa que deseja atualizar e preencha os campos que deseja modificar. Clique em "Atualizar".
+
+#### Excluir Pessoa: Na lista de pessoas cadastradas, clique no botão "Excluir" ao lado da pessoa que deseja remover.
 
 ## 🧡💙
