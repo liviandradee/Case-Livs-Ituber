@@ -7,7 +7,27 @@ pessoas = {}
 
 # Função para validar CPF
 def validar_cpf(cpf):
-    return len(cpf) == 11 and cpf.isdigit()
+    # Remove os pontos e tracos do cpf
+    cpf = cpf.replace(".", "").replace("-", "")
+
+    # Verifica se todos sao numeros e se tem 11 numeros
+    if len(cpf) != 11 or not cpf.isdigit():
+        return False
+
+    # Verifica se os numeros sao iguais
+    if cpf == cpf[0] * len(cpf):
+        return False
+
+    # Calculo do primeiro digito
+    soma = sum(int(cpf[i]) * (10 - i) for i in range(9))
+    digito1 = (soma * 10 % 11) % 10
+
+    # Calculo do segundo digito
+    soma = sum(int(cpf[i]) * (11 - i) for i in range(10))
+    digito2 = (soma * 10 % 11) % 10
+
+    # Ve se os digitos sao iguais ao cpf
+    return digito1 == int(cpf[9]) and digito2 == int(cpf[10])
 
 # Endpoint para cadastro (Create)
 @app.route('/pessoas', methods=['POST'])
