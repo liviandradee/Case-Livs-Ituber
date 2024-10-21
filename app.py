@@ -26,7 +26,7 @@ def validar_cpf(cpf):
     soma = sum(int(cpf[i]) * (11 - i) for i in range(10))
     digito2 = (soma * 10 % 11) % 10
 
-    # Ve se os digitos sao iguais ao cpf
+    # Ve se os digitos sãa iguais ao cpf
     return digito1 == int(cpf[9]) and digito2 == int(cpf[10])
 
 # Endpoint para cadastro (Create)
