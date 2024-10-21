@@ -24,9 +24,17 @@ document.getElementById('form-cadastrar').addEventListener('submit', function(e)
     .then(data => {
         console.log('Pessoa cadastrada:', data);
         listarPessoas();  // Atualiza a lista de pessoas
+
+        // Mostra mensagem na tela e limpa o formulario
+        window.alert('Cadastro realizado com sucesso!');
+
+        document.getElementById('form-cadastrar').reset();
     })
     .catch((error) => {
         console.error('Erro ao cadastrar pessoa:', error);
+        
+        // Exibe mensagem de erro
+        window.alert('Erro ao cadastrar pessoa. Tente novamente.');
     });
 });
 
