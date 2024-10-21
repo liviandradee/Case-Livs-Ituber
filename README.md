@@ -123,6 +123,8 @@ Resposta esperada:
 
 ### INTERFACE HTML: 
 
+#### Inicie a api com o python app.py
+
 #### Abra o arquivo index.html: Você pode abrir o arquivo index.html em um navegador web.
 
 ####  Cadastrar Pessoa: Preencha o formulário de cadastro e clique em "Cadastrar". A nova pessoa será adicionada à API e aparecerá na lista abaixo.
