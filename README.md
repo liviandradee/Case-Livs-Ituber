@@ -1,5 +1,5 @@
-# Manage+ API
-## Manage+ é um programa  simples que permite cadastrar, atualizar, listar e excluir pessoas. Este README explica como utilizar a API e como trabalhar com a interface HTML fornecida.
+# Manage+ API 🟧
+## Manage+ é uma aplicação simples para nosso cliente que permite cadastrar, atualizar, listar e excluir pessoas. Essa documentação explica como utilizar a API e como trabalhar com a interface fornecida.
 
 ### Requisitos
 Antes de começar, você precisa ter o seguinte instalado:
@@ -24,21 +24,21 @@ Antes de começar, você precisa ter o seguinte instalado:
 
 ### Crie um ambiente virtual (opcional, mas recomendado):
 
-python -m venv venv
+- python -m venv venv
 
 ### Ative o ambiente virtual:
 
-####  python -m venv venv
-#### source venv/bin/activate   Para Linux/Mac
-####  venv\Scripts\activate      Para Windows
+-  python -m venv venv
+- source venv/bin/activate   Para Linux/Mac
+- venv\Scripts\activate      Para Windows
 
 
 
 ### Instale as dependências:
 
-#### pip install flask
-#### pip install flask-cors
-#### mysql-connector-python
+- pip install flask
+- pip install flask-cors
+- mysql-connector-python
 
 
 ## Configurando o Banco de Dados
@@ -56,7 +56,7 @@ python -m venv venv
 ## Como Executar a API
 Execute o comando:
 
-python app.py
+- python app.py
 
 A API estará disponível em http://127.0.0.1:5000.
 
@@ -71,22 +71,22 @@ Body (JSON):
 
 
 {
-  "nome_completo": "João Silva",
-  "data_nascimento": "1990-01-01",
-  "endereco": "Rua das Flores, 123",
-  "cpf": "12345678901",
-  "estado_civil": "Solteiro"
+  - "nome_completo": "João Silva",
+  - "data_nascimento": "1990-01-01",
+  - "endereco": "Rua das Flores, 123",
+  - "cpf": "12345678901",
+  - "estado_civil": "Solteiro"
 }
 
 Resposta esperada:
 
 {
-  "id": "1",
-  "nome_completo": "João Silva",
-  "data_nascimento": "1990-01-01",
-  "endereco": "Rua das Flores, 123",
-  "cpf": "12345678901",
-  "estado_civil": "Solteiro"
+  - "id": "1",
+  - "nome_completo": "João Silva",
+  - "data_nascimento": "1990-01-01",
+  - "endereco": "Rua das Flores, 123",
+  - "cpf": "12345678901",
+  - "estado_civil": "Solteiro"
 }
 
 ### 2. Listar todas as pessoas
@@ -97,12 +97,12 @@ Resposta esperada:
 
 
 {
-  "1": {
-    "nome_completo": "João Silva",
-    "data_nascimento": "1990-01-01",
-    "endereco": "Rua das Flores, 123",
-    "cpf": "12345678901",
-    "estado_civil": "Solteiro"
+  - "1": {
+    - "nome_completo": "João Silva",
+    - "data_nascimento": "1990-01-01",
+    - "endereco": "Rua das Flores, 123",
+    - "cpf": "12345678901",
+    - "estado_civil": "Solteiro"
   }
 }
 
@@ -114,16 +114,16 @@ URL: http://127.0.0.1:5000/pessoas/1
 Body (JSON):
 
 {
-  "endereco": "Avenida Central, 456"
+ - "endereco": "Avenida Central, 456"
 }
 Resposta esperada:
 
 {
-  "nome_completo": "João Silva",
-  "data_nascimento": "1990-01-01",
-  "endereco": "Avenida Central, 456",
-  "cpf": "12345678901",
-  "estado_civil": "Solteiro"
+  - "nome_completo": "João Silva",
+  - "data_nascimento": "1990-01-01",
+  - "endereco": "Avenida Central, 456",
+  - "cpf": "12345678901",
+  - "estado_civil": "Solteiro"
 }
 
 ## 4. Excluir uma pessoa
@@ -133,7 +133,7 @@ URL: http://127.0.0.1:5000/pessoas/1
 Resposta esperada:
 
 {
-  "mensagem": "Pessoa excluída com sucesso."
+  - "mensagem": "Pessoa excluída com sucesso."
 }
 
 
