@@ -54,7 +54,7 @@ input {
 
 button {
     padding: 10px;
-    background-color: #dfbdfa;
+    background-color: #e7770e;
     color: white;
     border: none;
     border-radius: 5px;
@@ -64,7 +64,7 @@ button {
 }
 
 button:hover {
-    background-color: #ab72e0;
+    background-color: #110ebd;
 }
 
 .centralizado {
