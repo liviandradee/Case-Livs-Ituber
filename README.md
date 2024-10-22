@@ -107,7 +107,7 @@ Resposta esperada:
 }
 
 
-## 3. Atualizar uma pessoa existente
+### 3. Atualizar uma pessoa existente
 Método: PUT
 URL: http://127.0.0.1:5000/pessoas/1
 
