@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     font-family: "Poppins", sans-serif;
-    overflow-y: auto;
+  
 }
 
 body {
@@ -23,7 +23,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
-    overflow-y: auto;
+    
     
 }
 
