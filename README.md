@@ -6,6 +6,8 @@ Antes de começar, você precisa ter o seguinte instalado:
 
 ### Python 3.x
 ### Flask
+### MySQL Server
+### mysql-connector-python
 ### Flask-CORS
 
  ###  1. Objetivo: Criar uma API para cadastro e gestão de pessoas.
@@ -14,7 +16,7 @@ Antes de começar, você precisa ter o seguinte instalado:
   - localhost/pessoas (GET)
   - localhost/pessoas/id (PUT)
   - localhost/pessoas/id (DELETE)
- ###  3. Recurso: Gestão de pessoas
+ ###  3. Recurso: Gestão de pessoas utilizando um banco de dados MySQL para armazenar os dados.
 
 
 ## Instalação
@@ -34,8 +36,22 @@ python -m venv venv
 
 ### Instale as dependências:
 
-pip install flask
-pip install flask-cors
+#### pip install flask
+#### pip install flask-cors
+#### mysql-connector-python
+
+
+## Configurando o Banco de Dados
+### Crie um banco de dados chamado api_pessoas no MySQL.
+###  Crie uma tabela chamada pessoas com a seguinte estrutura:
+###  CREATE TABLE pessoas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_completo VARCHAR(255) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    endereco VARCHAR(255),
+    cpf VARCHAR(11) UNIQUE NOT NULL,
+    estado_civil VARCHAR(50)
+);
 
 ## Como Executar a API
 Execute o comando:
