@@ -1,7 +1,7 @@
 // URL da API
 const apiUrl = "http://localhost:5000/pessoas";
 
-// Função para cadastrar 
+// Função para cadastrar pessoa
 document.getElementById('form-cadastrar').addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -20,25 +20,25 @@ document.getElementById('form-cadastrar').addEventListener('submit', function(e)
         },
         body: JSON.stringify(pessoa),
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Pessoa cadastrada:', data);
-        listarPessoas();  // Atualiza a lista de pessoas
-
-        // Mostra mensagem na tela e limpa o formulario
-        window.alert('Cadastro realizado com sucesso!');
-
-        document.getElementById('form-cadastrar').reset();
+    .then(response => response.json().then(data => ({ status: response.status, body: data })))
+    .then(({ status, body }) => {
+        if (status === 201) {
+            console.log('Pessoa cadastrada:', body);
+            listarPessoas();  // Atualiza a lista de pessoas
+            window.alert('Cadastro realizado com sucesso!');
+            document.getElementById('form-cadastrar').reset();
+        } else {
+            console.error('Erro ao cadastrar pessoa:', body);
+            window.alert(`Erro: ${body.erro}`);
+        }
     })
     .catch((error) => {
         console.error('Erro ao cadastrar pessoa:', error);
-        
-        // Exibe mensagem de erro
         window.alert('Erro ao cadastrar pessoa. Tente novamente.');
     });
 });
 
-// Função para atualizar 
+// Função para atualizar pessoa
 document.getElementById('form-atualizar').addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -59,32 +59,45 @@ document.getElementById('form-atualizar').addEventListener('submit', function(e)
         },
         body: JSON.stringify(pessoaAtualizada),
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Pessoa atualizada:', data);
-        listarPessoas();  // Atualiza a lista 
+    .then(response => response.json().then(data => ({ status: response.status, body: data })))
+    .then(({ status, body }) => {
+        if (status === 200) {
+            console.log('Pessoa atualizada:', body);
+            listarPessoas();  // Atualiza a lista de pessoas
+            window.alert('Atualização realizada com sucesso!');
+        } else {
+            console.error('Erro ao atualizar pessoa:', body);
+            window.alert(`Erro: ${body.erro}`);
+        }
     })
     .catch((error) => {
         console.error('Erro ao atualizar pessoa:', error);
     });
 });
 
-// Função para deletar 
+// Função para deletar pessoa
 function deletarPessoa(id) {
     fetch(`${apiUrl}/${id}`, {
         method: 'DELETE',
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Pessoa deletada:', data);
-        listarPessoas();  // Atualiza a lista de pessoas dps da exclusao
+    .then(response => response.json().then(data => ({ status: response.status, body: data })))
+    .then(({ status, body }) => {
+        if (status === 200) {
+            console.log('Pessoa deletada:', body);
+            listarPessoas();  // Atualiza a lista de pessoas após a exclusão
+            window.alert('Pessoa excluída com sucesso!');
+        } else {
+            console.error('Erro ao deletar pessoa:', body);
+            window.alert(`Erro: ${body.erro}`);
+        }
     })
     .catch((error) => {
         console.error('Erro ao deletar pessoa:', error);
+        window.alert('Erro ao deletar pessoa. Tente novamente.');
     });
 }
 
-// Listando as pessoas cadastradas
+// Função para listar pessoas cadastradas
 function listarPessoas() {
     fetch(apiUrl)
     .then(response => response.json())
@@ -92,19 +105,18 @@ function listarPessoas() {
         const listaPessoasDiv = document.getElementById('lista-pessoas');
         listaPessoasDiv.innerHTML = '';
 
-        if (Object.keys(data).length === 0) {
+        if (data.length === 0) {
             listaPessoasDiv.innerHTML = '<p class="centralizado">Nenhuma pessoa cadastrada.</p>';
         } else {
-            Object.keys(data).forEach(id => {
-                const pessoa = data[id];
+            data.forEach(pessoa => {
                 listaPessoasDiv.innerHTML += `
                     <div>
-                        <h3>${pessoa.nome_completo} (ID: ${id})</h3>
+                        <h3>${pessoa.nome_completo} (ID: ${pessoa.id})</h3>
                         <p>Data de Nascimento: ${pessoa.data_nascimento}</p>
                         <p>Endereço: ${pessoa.endereco}</p>
                         <p>CPF: ${pessoa.cpf}</p>
                         <p>Estado Civil: ${pessoa.estado_civil}</p>
-                        <button onclick="deletarPessoa(${id})">Excluir</button>
+                        <button onclick="deletarPessoa(${pessoa.id})">Excluir</button>
                     </div>
                     <hr>
                 `;
@@ -113,8 +125,9 @@ function listarPessoas() {
     })
     .catch((error) => {
         console.error('Erro ao listar pessoas:', error);
+        window.alert('Erro ao listar pessoas. Tente novamente.');
     });
 }
 
-// Listar pessoas
+// Listar pessoas ao carregar a página
 listarPessoas();
