@@ -22,15 +22,15 @@ Antes de começar, você precisa ter o seguinte instalado:
 ## Instalação
 
 
-### Crie um ambiente virtual (opcional, mas recomendado):
+### Crie um ambiente virtual
 
 - python -m venv venv
 
 ### Ative o ambiente virtual:
 
 -  python -m venv venv
-- source venv/bin/activate   Para Linux/Mac
-- venv\Scripts\activate      Para Windows
+- source venv/bin/activate  | Para Linux/Mac
+- venv\Scripts\activate     | Para Windows
 
 
 
@@ -42,8 +42,8 @@ Antes de começar, você precisa ter o seguinte instalado:
 
 
 ## Configurando o Banco de Dados
-### Crie um banco de dados chamado api_pessoas no MySQL.
-###  Crie uma tabela chamada pessoas com a seguinte estrutura:
+#### Crie um banco de dados chamado api_pessoas no MySQL.
+####  Crie uma tabela chamada pessoas com a seguinte estrutura:
 ###  CREATE TABLE pessoas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome_completo VARCHAR(255) NOT NULL,
